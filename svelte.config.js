@@ -1,7 +1,7 @@
 // import adapter from '@sveltejs/adapter-auto';
 import adapter from '@sveltejs/adapter-static';
 import preprocess from 'svelte-preprocess';
-const dev = process.env.NODE_ENV === 'development';
+const dev = process.env.NODE_ENV !== 'production';
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
@@ -10,18 +10,13 @@ const config = {
 	preprocess: preprocess(),
 
 	kit: {
-		adapter: adapter({
-			// default options are shown
-			outDir: 'docs',
-			pages: 'docs',
-			assets: 'docs',
-			fallback: null,
-			precompress: false
-		}),
+		adapter: adapter({ pages: 'docs', assets: 'docs' }),
 		paths: {
-			// change below to your repo name
 			base: dev ? '' : '/svelte-styleable'
-		}
+		},
+		// If you are not using a .nojekyll file, change your appDir to something not starting with an underscore.
+		// For example, instead of '_app', use 'app_', 'internal', etc.
+		appDir: 'libs'
 	}
 };
 

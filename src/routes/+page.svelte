@@ -1,9 +1,10 @@
 <script lang="ts">
 	import { Button, Card } from '$lib';
-	const onClick = (e: any) => {
+
+	function onClick(e: any) {
 		e.stopPropagation();
-		alert('Hello');
-	};
+		alert(`You just clicked on the ${this} button`);
+	}
 </script>
 
 <h1>Welcome to your library project</h1>
@@ -26,7 +27,7 @@
 	}}
 	on:click={() => console.log('card')}
 >
-	<Button type="button" variant="primary" on:click={onClick}>Time to soar!</Button>
-	<Button type="button" variant="secondary" on:click={onClick}>Soar, really?</Button>
-	<Button type="button" on:click={onClick}>Don't know 'bout that.</Button>
+	<Button type="button" variant="primary" on:click={onClick.bind('Primary')}>Primary</Button>
+	<Button type="button" variant="secondary" on:click={onClick.bind('Secondary')}>Secondary</Button>
+	<Button type="button" on:click={onClick.bind('Utility')}>Utility</Button>
 </Card>

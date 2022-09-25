@@ -24,6 +24,9 @@
 		p: '8px 16px',
 		shadow: '0px 1px 2px rgba(0 0 0 / 40%)',
 		cursor: 'pointer',
+		'&:focus': {
+			outline: 'none'
+		},
 		'&:hover': {
 			filter: 'brightness(85%)',
 			shadow: 'none'
