@@ -12,7 +12,7 @@ const config = {
 	kit: {
 		adapter: adapter({ pages: 'docs', assets: 'docs' }),
 		paths: {
-			base: dev ? '' : '/svelte-styleable'
+			base: dev ? '' : '/styleable'
 		}
 		// If you are not using a .nojekyll file, change your appDir to something not starting with an underscore.
 		// For example, instead of '_app', use 'app_', 'internal', etc.
